@@ -273,10 +273,22 @@ export function buildFamilyTree(): TreeNode {
     if (info.died) attributes.died = info.died;
     if (info.note) attributes.note = info.note;
 
+    // Try to find an existing person file slug first
+    let slug = findSlug(name, familyLine, slugIndex, info.born);
+
+    // If no file exists, generate a slug so every node is clickable
+    if (!slug) {
+      const baseName = name.replace(/\s*\(.*\)/, "").replace(/\s+/g, " ").trim();
+      const baseSlug = nameToSlug(baseName);
+      const yearMatch = info.born?.match(/(\d{4})/);
+      const yearSuffix = yearMatch ? `-${yearMatch[1]}` : "";
+      slug = `${familyLine.toLowerCase()}/${baseSlug}${yearSuffix}`;
+    }
+
     return {
       name,
       attributes: Object.keys(attributes).length > 0 ? attributes : undefined,
-      slug: findSlug(name, familyLine, slugIndex, info.born),
+      slug,
       familyLine,
       children: [],
     };
@@ -335,6 +347,19 @@ export function buildFamilyTree(): TreeNode {
   graftDeepLines(root);
 
   return root;
+}
+
+/**
+ * Flatten the tree into a list of all nodes (for generating fallback person pages).
+ */
+export function flattenTree(root: TreeNode): TreeNode[] {
+  const result: TreeNode[] = [root];
+  if (root.children) {
+    for (const child of root.children) {
+      result.push(...flattenTree(child));
+    }
+  }
+  return result;
 }
 
 /**

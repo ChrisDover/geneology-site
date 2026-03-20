@@ -12,6 +12,8 @@ import type {
   SearchEntry,
 } from "./types";
 import { geocode } from "./geocoder";
+import { buildFamilyTree, flattenTree } from "./tree-builder";
+import type { TreeNode } from "./types";
 
 const VAULT_PATH =
   process.env.VAULT_PATH || path.join(process.cwd(), "..", "geneology");
@@ -357,6 +359,45 @@ export async function getAllPersons(): Promise<Person[]> {
         relationshipToChris,
       });
     }
+  }
+
+  // Generate fallback persons from tree nodes that don't have markdown files
+  const existingSlugs = new Set(persons.map((p) => p.slug));
+  const tree = buildFamilyTree();
+  const allNodes = flattenTree(tree);
+
+  for (const node of allNodes) {
+    if (!node.slug || existingSlugs.has(node.slug)) continue;
+
+    const bornStr = node.attributes?.born || null;
+    const diedStr = node.attributes?.died || null;
+    const noteStr = node.attributes?.note || null;
+
+    persons.push({
+      slug: node.slug,
+      filePath: "",
+      name: node.name,
+      born: bornStr,
+      bornYear: parseYear(bornStr),
+      died: diedStr,
+      diedYear: parseYear(diedStr),
+      family: node.familyLine || "Other",
+      confidence: "From Family Tree",
+      sources: [],
+      tags: [],
+      birthPlace: null,
+      deathPlace: null,
+      burialPlace: null,
+      occupation: null,
+      locations: [],
+      parents: [],
+      spouses: [],
+      children: [],
+      bodyHtml: noteStr
+        ? `<p><em>${noteStr}</em></p>`
+        : "",
+      relationshipToChris: null,
+    });
   }
 
   // Sort by birth year
