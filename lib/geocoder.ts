@@ -12,7 +12,19 @@ const COORDS: Record<string, [number, number]> = {
   // England - Buckinghamshire
   "Dinton, Buckinghamshire, England": [51.7788, -0.8766],
   "Dinton, Buckinghamshire": [51.7788, -0.8766],
+  "Buckinghamshire, England": [51.7788, -0.8766],
   "Bradenham, Buckinghamshire": [51.6677, -0.8262],
+  "Pollicott, Buckinghamshire, England": [51.7883, -1.0192],
+  "Pollicott, Buckinghamshire": [51.7883, -1.0192],
+  "Ashendon, Buckinghamshire, England": [51.7883, -1.0192],
+  "Ashendon, Buckinghamshire": [51.7883, -1.0192],
+  "Stone, Buckinghamshire, England": [51.7949, -0.8121],
+  "Stone, Buckinghamshire": [51.7949, -0.8121],
+
+  // England - Shropshire (Billingsley)
+  "Billingsley, Shropshire, England": [52.4847, -2.4467],
+  "Billingsley, Shropshire": [52.4847, -2.4467],
+  "Shropshire, England": [52.4847, -2.4467],
 
   // England - Warwickshire / Midlands
   "Coventry, Warwickshire, England": [52.4068, -1.5197],
@@ -96,7 +108,45 @@ const COORDS: Record<string, [number, number]> = {
   "Weber, Utah": [41.223, -111.9738],
 
   // USA - Iowa
-  "Iowa": [41.8780, -93.0977],
+  "Iowa": [41.878, -93.0977],
+
+  // USA - Maryland (Billingsley colonial)
+  "Calvert County, Maryland": [38.5354, -76.5285],
+  "St. Mary's County, Maryland": [38.2151, -76.5349],
+  "Maryland": [39.0458, -76.6413],
+
+  // USA - Virginia
+  "Nansemond County, Virginia": [36.7268, -76.585],
+  "Virginia": [37.4316, -78.6569],
+
+  // USA - North Carolina
+  "Guilford County, North Carolina": [36.0726, -79.7889],
+  "North Carolina": [35.7596, -79.0193],
+
+  // USA - Tennessee
+  "Knoxville, Tennessee": [35.9606, -83.9207],
+  "Bledsoe County, Tennessee": [35.5979, -85.3541],
+  "Tennessee": [35.5175, -86.5804],
+
+  // USA - Mississippi
+  "Pontotoc County, Mississippi": [34.2484, -89.0037],
+
+  // USA - Texas
+  "Texas": [31.9686, -99.9018],
+
+  // USA - Arizona
+  "Bisbee, Arizona": [31.4478, -109.9284],
+
+  // USA - Utah (additional)
+  "Orderville, Utah": [37.2749, -112.6382],
+  "Virgin City, Utah": [37.2063, -113.1833],
+  "Grafton, Utah": [37.1696, -113.0794],
+  "Hamilton Fort, Utah": [37.7261, -113.1997],
+  "Provo, Utah": [40.2338, -111.6585],
+
+  // Holland (Billingsley emigration)
+  "Rotterdam, Holland": [51.9244, 4.4777],
+  "Rotterdam, Netherlands": [51.9244, 4.4777],
 };
 
 export function geocode(place: string): [number, number] | null {
