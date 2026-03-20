@@ -55,7 +55,7 @@ export default function RootLayout({
         >
           <p className="text-base">Dover-Houghton Family History</p>
           <p className="mt-1 text-sm" style={{ color: "var(--text-low-emphasis)" }}>
-            608+ years of family history across 6 countries
+            Nearly 1,000 years of family history across 6 countries
           </p>
         </footer>
       </body>

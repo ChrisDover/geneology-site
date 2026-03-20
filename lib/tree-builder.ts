@@ -558,8 +558,28 @@ function graftDeepLines(root: TreeNode) {
                         familyLine: "Dover",
                         children: [{
                           name: "Godfrey Pollicott",
-                          attributes: { died: "1408", note: "EARLIEST ANCESTOR" },
+                          attributes: { died: "1408", note: "Earliest confirmed direct ancestor" },
                           familyLine: "Dover",
+                          children: [{
+                            name: "William Poleycote",
+                            attributes: { born: "~1373", note: "Stone, Bucks — Warwick Univ." },
+                            familyLine: "Dover",
+                            children: [{
+                              name: "John Polecote",
+                              attributes: { born: "~1286", note: "Stone, Bucks — Warwick Univ." },
+                              familyLine: "Dover",
+                              children: [{
+                                name: "Ralph Polecot",
+                                attributes: { born: "~1234", note: "Earliest named Polecot" },
+                                familyLine: "Dover",
+                                children: [{
+                                  name: "\"Policote\" in Domesday Book",
+                                  attributes: { born: "1086", note: "Place name — Ashendon, Bucks" },
+                                  familyLine: "Dover",
+                                }],
+                              }],
+                            }],
+                          }],
                         }],
                       }],
                     }],
@@ -608,8 +628,18 @@ function graftDeepLines(root: TreeNode) {
                   familyLine: "Adams",
                   children: [{
                     name: "Francis Billingsley",
-                    attributes: { born: "~1600", died: "~1660", note: "COLONIAL MARYLAND — 1,250 acres" },
+                    attributes: { born: "~1600", died: "~1660", note: "Colonial Maryland — 1,250 acres" },
                     familyLine: "Adams",
+                    children: [{
+                      name: "Billingsley family",
+                      attributes: { note: "Shropshire, England — pre-emigration" },
+                      familyLine: "Adams",
+                      children: [{
+                        name: "Wyllym de Byllyngsleye",
+                        attributes: { born: "1306", note: "King's Clerk — earliest Billingsley" },
+                        familyLine: "Adams",
+                      }],
+                    }],
                   }],
                 }],
               }],

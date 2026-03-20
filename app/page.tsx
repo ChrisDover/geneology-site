@@ -14,18 +14,20 @@ export default async function HomePage() {
   // Person files go back to 1668, but verified research traces to:
   // - Godfrey Pollicott d. 1408 (confirmed via Warwick University research)
   // - "Policote" in Domesday Book 1086 (place name origin)
-  // - Francis Billingsley b. ~1600 (colonial Maryland)
-  const EARLIEST_RESEARCH_YEAR = 1408; // Godfrey Pollicott, deepest confirmed ancestor
+  // "Policote" recorded in the Domesday Book, 1086
+  // Ralph Polecot (~1234) is the earliest named person with the surname
+  // Godfrey Pollicott (d. 1408) is the earliest confirmed direct ancestor
+  const EARLIEST_RECORD_YEAR = 1086; // Domesday Book
   const latestYear = Math.max(
     ...persons.filter((p) => p.diedYear).map((p) => p.diedYear!)
   );
-  const yearsOfHistory = latestYear - EARLIEST_RESEARCH_YEAR;
+  const yearsOfHistory = latestYear - EARLIEST_RECORD_YEAR;
 
   const features = [
     {
       href: "/tree/",
       title: "Family Tree",
-      desc: "Interactive, expandable tree visualization spanning 10+ generations",
+      desc: "Interactive tree spanning 20+ generations back to the Domesday Book era",
       icon: "\u{1F333}",
     },
     {
@@ -91,8 +93,7 @@ export default async function HomePage() {
           <strong style={{ color: "var(--action-primary)" }}>
             35+ surnames
           </strong>
-          &mdash;from medieval England to the American West, with verified
-          lineage back to 1408.
+          &mdash;from the Domesday Book (1086) to the present day.
         </p>
       </section>
 
