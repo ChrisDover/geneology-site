@@ -21,11 +21,12 @@ jobs:
       - name: Checkout site repo
         uses: actions/checkout@v4
 
-      - name: Checkout data repo
+      - name: Checkout data repo (private)
         uses: actions/checkout@v4
         with:
           repository: ChrisDover/geneology
           path: geneology
+          ssh-key: ${{ secrets.DATA_REPO_SSH_KEY }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
