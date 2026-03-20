@@ -649,4 +649,33 @@ function graftDeepLines(root: TreeNode) {
       }],
     }];
   }
+
+  // ─── PINK SURGEON LINE ───
+  // Sarah Pink (b. 1782) married James Houghton (b. 1792)
+  // Her father was William Pink, a surgeon in East Meon, Hampshire
+  const sarahPink = findNode(root, "Sarah Pink");
+  if (sarahPink) {
+    sarahPink.children = [{
+      name: "William Pink (surgeon)",
+      attributes: { born: "1769", died: "1819", note: "Surgeon, East Meon, Hampshire" },
+      familyLine: "Houghton",
+      children: [{
+        name: "Sarah Minchin",
+        attributes: { note: "m. 1781, Portsea" },
+        familyLine: "Houghton",
+      }, {
+        name: "William Pink",
+        attributes: { born: "~1744", note: "WikiTree Pink-80" },
+        familyLine: "Houghton",
+      }],
+    }];
+  }
+
+  // ─── NURSE LINE ───
+  // George Nurse (b. 1833) parents are John Nurse and Sarah Germaine
+  // Already in tree from ASCII. No deeper data yet.
+
+  // ─── JAMES HOUGHTON ───
+  // James Houghton (b. 1792) — TRUE HOUGHTON LINE
+  // No parents known yet — this is the research frontier for the Houghton surname
 }
